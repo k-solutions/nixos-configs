@@ -103,9 +103,12 @@
 
   # Browsers and Extensions
     firefox = {
-      # enable = true;
+      enable = true;
+      enableGoogleTalkPlugin = true;
       # enableIcedTea = true;
-      # extraPackages = epkgs: [ ];
+      extraPackages = epkgs: [
+
+      ];
     }; 
   };
 }

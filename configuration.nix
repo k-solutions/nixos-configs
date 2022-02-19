@@ -12,9 +12,10 @@
       # <home-manager/nixos>  
       # Define a user account. Don't forget to set a password with ‘passwd’.
       ./users.nix 
-      ./cachix.nix	
+      # ./cachix.nix	
       # ./yubikey.nix   # Yubikey and Smart Card configurations			 
     ];
+
   environment.variables.EDITOR = "vim";
   # boot opions from nixos-source
   boot = import ./boot.nix {inherit config pkgs;}; 
@@ -28,12 +29,21 @@
 	
 	# Containers
 	#####################
-	#   containers = {
+	containers = {
 	#     web = {
 	# 	autoStart = true;
 	# 	privateNetwork = true;
 	# 	};
-	#  };
+		pgSql = { 
+                   config = {config, pkgs, ...}:  
+			    { services.postgresql.enable = true;
+  			      services.postgresql.package = pkgs.postgresql; 	
+			    };
+                   autoStart = true;
+		   # privateNetwork = true;
+                   	
+                }; 
+	};
 	
 	# Virtualisation
 	######################  
@@ -47,18 +57,21 @@
 	# }; 
 	# The NixOS release to be compatible with for stateful data such as databases.
 
-  system.autoUpgrade.enable = true;
-  system.autoUpgrade.channel = https://nixos.org/channels/nixos-unstable;  
+  system.autoUpgrade = { 
+  	enable = false;
+  	channel = https://nixos.org/channels/nixos-unstable;
+  };
+  
   nix = {
     gc = {
 	automatic = true;
 	dates = "weekly";
 	options = "--delete-older-than 30d";
     };
-
+    # trustedUsers = ["root" "me"];
     binaryCaches          = [ "https://hydra.iohk.io" "https://iohk.cachix.org" ];
     binaryCachePublicKeys = [ "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ=" "iohk.cachix.org-1:DpRUyj7h7V830dp/i6Nti+NEO2/nhblbov/8MW7Rqoo=" ];
-
+    # registry.nixpkgs.flake = nixpkgs;	
     package = pkgs.nixFlakes;
     extraOptions = ''
       experimental-features = nix-command flakes

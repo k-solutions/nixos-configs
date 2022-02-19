@@ -2,7 +2,7 @@ pkgs : {
   allowUnfree = true;
   # ignoreCollisions = true;
   allowBroken = true;
-  # firefox.enableGoogleTalkPlugin = true;
+  firefox.enableGoogleTalkPlugin = true;
   # firefox.enableEsteid = true;
 
   # chromium = {
@@ -12,12 +12,14 @@ pkgs : {
 
   packageOverrides = pkgs : with pkgs; rec  {
     myHaskellEnv = (import ./haskell.nix pkgs).haskellEnv; 
+    myStackEnv = (import ./haskell.nix pkgs).stackEnv;
     myVim = import ./vim.nix;
-      my = pkgs.buildEnv {
+    my = pkgs.buildEnv {
         name = "my";
         paths = [
           stdenv.cc.cc.lib
           myHaskellEnv
+          myStackEnv
           myVim
           neovim
           niv
@@ -26,6 +28,6 @@ pkgs : {
           # firefox
           # opera
         ];
-      };
+    };
   };
 }

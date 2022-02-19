@@ -15,7 +15,7 @@ with pkgs.vimPlugins; [
     # "floobits-neovim"
     vim2hs
     vim2nix
-    vim-hdevtools
+    # vim-hdevtools
     vim-stylishask
     vim-elixir
     vim-lsp

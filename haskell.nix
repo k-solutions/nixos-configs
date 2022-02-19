@@ -19,7 +19,7 @@ pkgs:
                    doctest 
                    hlint 
                    stylish-haskell
-                   # haddock
+                   # haddock-2.24.2
                    haskell-language-server  # .override { supportedGhcVersions = [ "8107" ]; }      
                    implicit-hie
 
@@ -32,8 +32,23 @@ pkgs:
                    # ghc-mod  
                    # niv  
                    # tools
-                   # stack
+                   
+                   stack
                    # stack2nix
+                 ]);
+   stackEnv = pkgs.haskellPackages.ghcWithHoogle
+                 (haskellPackages: with haskellPackages; [
+                   # test && linters
+                   doctest 
+                   hlint 
+                   stylish-haskell
+                   # haddock-2.24.2
+                   haskell-language-server  # .override { supportedGhcVersions = [ "8107" ]; }      
+                   implicit-hie
+
+                   # tools
+                   hasktags
+                   stack
                  ]);
                  
 }
