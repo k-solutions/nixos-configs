@@ -24,12 +24,12 @@
   time.timeZone = "Europe/Sofia";
 
 
-  fileSystems."/data" =
-  { device = "/dev/disk/by-label/data";
-    fsType = "ext4";
-    options = [ "nofail" ];
-  };
-  
-  # swap
-  swapDevices = [{device = "/swapfile"; size = 8000;}];
+  # fileSystems."/data" =
+  # { device = "/dev/disk/by-label/data";
+  #  fsType = "ext4";
+  #  options = [ "nofail" ];
+  # };
+  #
+  # swap file
+  # swapDevices = [{device = "/swapfile"; size = 8000;}];
 } 

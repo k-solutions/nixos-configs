@@ -28,7 +28,7 @@
       cachix
       
       # dconf for gnome3 UI
-      # gnome3.dconf
+      dconf
 
       # docker-compose
 

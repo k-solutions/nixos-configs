@@ -7,7 +7,7 @@
      pciutils
      rfkill
      usbutils
-     telnet
+     inetutils    # telnet
      traceroute
      tree
      wget

@@ -37,7 +37,8 @@ baseEnv = lib.lowPrio (
             # qutebrowser
             # skype
             # sxiv
-            telnet
+            # telnet
+	    inetutils
             # tightvnc
             tmux
             traceroute
