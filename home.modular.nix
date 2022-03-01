@@ -47,7 +47,7 @@
     programs = {
       chromium.enable = true; 
       bash.enable = true;
-      dconf.enable = true; # add for gnome programs (opera, firefox etc.)
+      # dconf.enable = true; # add for gnome programs (opera, firefox etc.)
 
       vim = {
         enable = true;

@@ -5,7 +5,7 @@
 
   hardware = {   
     pulseaudio.enable = true;
-    brightnessctl.enable = true;
+    # brightnessctl.enable = true;
     cpu.intel.updateMicrocode = true;
   };
   # ALSA Sound extra configuration
@@ -24,12 +24,12 @@
   time.timeZone = "Europe/Sofia";
 
 
-  fileSystems."/data" =
-  { device = "/dev/disk/by-label/data";
-    fsType = "ext4";
-    options = [ "nofail" ];
-  };
+  # fileSystems."/data" =
+  # { device = "/dev/disk/by-label/data";
+  #  fsType = "ext4";
+  #  options = [ "nofail" ];
+  #};
   
   # swap
-  swapDevices = [{device = "/swapfile"; size = 8000;}];
+  # swapDevices = [{device = "/swapfile"; size = 8000;}];
 } 

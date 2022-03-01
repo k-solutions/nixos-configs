@@ -5,9 +5,10 @@
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
      pciutils
-     rfkill
+     # rfkill
      usbutils
-     telnet
+     # telnet
+     inetutils
      traceroute
      tree
      wget
@@ -73,7 +74,7 @@
   ];
 
   fonts = {
-    enableFontDir = true;
+    fontDir.enable = true;
     fonts = with pkgs; [
       # corefonts
       dina-font

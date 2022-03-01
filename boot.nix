@@ -11,15 +11,18 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-    initrd.suportedFilesystems = [ "zfs" ];
-    suportedFilesystems = [ "zfs" ];
-    zfs.requestEncryptionCredentials = true;
+    initrd.supportedFilesystems = [ "zfs" ];
+    supportedFilesystems = [ "zfs" ];
+    zfs = { 
+		requestEncryptionCredentials = true;
+	   	devNodes = "/dev/";
+ 	};
 
     # Define on which hard drive you want to install Grub.
     loader.grub.device = "/dev/sda"; # or "nodev" for efi only
     # kernelModules = [ "tun" "virtio" "cpufreq_stats"  "acpi" "thinkpad-acpi" "tp_acpi" ];
     kernelParams = [
-      
+      "rtw89pci"      
       # Kernel GPU Savings Options (NOTE i915 chipset only)
       # "drm.debug=0" "drm.vblankoffdelay=1" "i915.semaphores=1" "i915.modeset=1"
       # "i915.use_mmio_flip=1" 
@@ -45,7 +48,7 @@
       # "acpi_backlight=none"
     ];
     
-    initrd.kernelModules = ["acpi" "thinkpad-acpi" "tp_acpi" "tpacpi-bat"];
+    initrd.kernelModules = ["acpi" "thinkpad-acpi" ];
     
     extraModulePackages = [
       # pkgs.linuxPackages.virtualbo

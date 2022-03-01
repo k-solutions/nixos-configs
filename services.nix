@@ -119,5 +119,5 @@
 	];		
   # services.xserver.desktopManager.e17.enable = true;
     pcscd.enable = true; # pcsc-lite daemon  
-    dbus.packages = with pkgs; [ gnome3.dconf ];
+    dbus.packages = with pkgs; [ dconf ];
  }

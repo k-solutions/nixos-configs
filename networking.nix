@@ -2,7 +2,7 @@
 
 {
     hostId = "cd5aacab";       # ZFS request setting	
-    hostName = "thinkpadT14s";     # Define your hostname.
+    hostName = "thinkpadT14";     # Define your hostname.
     # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
     # nameservers = ["8.8.8.8"  "8.8.4.4"];
     networkmanager.enable = true;
@@ -26,12 +26,12 @@
     useDHCP = false;
     interfaces.enp2s20f0.useDHCP = true;
     interfaces.enp5s0.useDHCP = true;
-    interfaces.wlp4s0.useDHCP = true;
+    # interfaces.wlp4s0.useDHCP = true;
 
     nat = {
         internalInterfaces = ["ve-+"];
         # externalInterface = "enp0s20f0u6";
-        externalInterface = "wlp4s0";
+        # externalInterface = "wlp4s0";
     };
 
 #    Forwarding for the Ruby VM
