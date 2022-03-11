@@ -1,0 +1,34 @@
+{ 
+  "coc.preferences.formatOnSaveFiletypes": [
+    "elm",
+    "json"
+  ], 
+  "coc.preferences.formatOnType": true,
+  "languageserver": {
+    "elmLS": {
+      "command": "elm-language-server",
+      "filetypes": ["elm"],
+      "rootPatterns": ["elm.json"],
+      "trace.server": "verbose",
+      "initializationOptions": {
+        "elmPath": "",
+        "elmFormatPath": "elm-format",
+        "elmTestPath": "elm-test",
+        "disableElmLSDiagnostics": false,
+        "skipInstallPackageConfirmation": false
+      }
+    },
+
+    "erlang": {
+      "command": "erlang_ls",
+      "filetypes": ["erlang"]
+    },
+
+    "haskell": {
+      "command": "haskell-language-server-wrapper",
+      "args": ["--lsp"],
+      "rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
+      "filetypes": ["lhs", "hs", "haskell", "lhaskell"]
+    }
+  }
+}
