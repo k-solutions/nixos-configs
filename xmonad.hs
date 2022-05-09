@@ -104,14 +104,14 @@ myNormalBorderColor  = "#7c7c7c"
 myFocusedBorderColor = "#00cc00"  -- "#ffb6b0"
 
 -- Colors for text and backgrounds of each tab when in "Tabbed" layout.
-tabConfig = defaultTheme {
+tabConfig = def {
     activeBorderColor   = "#7C7C7C",
     activeTextColor     = "#CEFFAC",
     activeColor         = "#000000",
     inactiveBorderColor = "#7C7C7C",
     inactiveTextColor   = "#EEEEEE",
     inactiveColor       = "#000000"
-}
+} :: Theme
 
 -- Color of current window title in xmobar.
 xmobarTitleColor = "#FFB6B0"
@@ -345,9 +345,9 @@ myStartupHook = return ()
 -- Run xmonad with all the defaults we set up.
 --
 main = do
-  xmproc <- spawnPipe "xrandr --output eDP1 --auto --output HDMI1 --auto --left-of eDP1"  
-  xmproc <- spawnPipe "feh --bg-center /home/me/Pictures/wallpaper.jpg"
-  xmproc <- spawnPipe "xmobar ~/.xmonad/xmobar.hs"
+  xmproc <- spawnPipe "xrandr --output eDP --auto --output HDMI-A-0 --auto --right-of eDP"  
+  xmproc <- spawnPipe "~/.fehbg &"
+  xmproc <- spawnPipe "xmobar /home/nixos-configs/xmobar.hs"
   xmonad $ defaults {
       logHook = dynamicLogWithPP $ xmobarPP {
             ppOutput = hPutStrLn xmproc

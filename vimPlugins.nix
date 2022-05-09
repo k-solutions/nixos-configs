@@ -10,8 +10,10 @@ with pkgs.vimPlugins; [
     taglist
     vim-closetag
     vim-css-color
-    # "elm-vim"
-    vim-colorschemes
+    elm-vim
+    vim-elm-syntax	
+    awesome-vim-colorschemes
+    # vim-colorschemes	
     # "floobits-neovim"
     vim2hs
     vim2nix
@@ -19,7 +21,6 @@ with pkgs.vimPlugins; [
     vim-stylishask
     vim-elixir
     vim-lsp
-    # vim-lsp-settings
     vim-json
     coc-nvim
 ]

@@ -20,7 +20,7 @@
       # nodejs is needed for vim language-server
       nodejs
 
-      opera
+      # opera
       # NOTE: iana-etc is needed by nix-build for stack 
       # stack
       # iana-etc

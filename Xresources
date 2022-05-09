@@ -1,22 +1,22 @@
 ! Font options - ~/.fonts.conf seems to override this
 ! Resolution for Xft in dots per inch (e.g. 96)
-!Xft.dpi:       128
+Xft.dpi:       128
 ! Type of subpixel antialiasing (none, rgb, bgr, vrgb or vbgr)
-!Xft.rgba:      rgba
-!Xft.antialias: 1
-!Xft.hinting:   1
-!Xft.autohint:  0
+Xft.rgba:      rgba
+Xft.antialias: 1
+Xft.hinting:   1
+Xft.autohint:  0
 ! What degree of hinting to use (hintnone, hintslight, hintmedium, or hintfull)
-!Xft.hintstyle: hintslight
+Xft.hintstyle: hintslight
 
 xterm*faceName: terminus-11
 URxvt*font:     terminus-11
 URxvt*boldFont: terminus-11
 
 ! #define FONTSIZE 14
-!xterm*faceName: xft:PragmataPro:size=FONTSIZE:antialias=true:hinting=true:autohint=false:hintstyle=hintnone:dpi=96
-!URxvt*font:     xft:PragmataPro:size=FONTSIZE:antialias=true:hinting=true:autohint=false:hintstyle=hintnone:dpi=96
-!URxvt*boldFont: xft:PragmataPro:size=FONTSIZE:antialias=true:hinting=true:autohint=false:hintstyle=hintnone:dpi=96
+xterm*faceName: xft:PragmataPro:size=FONTSIZE:antialias=true:hinting=true:autohint=false:hintstyle=hintnone:dpi=96
+URxvt*font:     xft:PragmataPro:size=FONTSIZE:antialias=true:hinting=true:autohint=false:hintstyle=hintnone:dpi=96
+URxvt*boldFont: xft:PragmataPro:size=FONTSIZE:antialias=true:hinting=true:autohint=false:hintstyle=hintnone:dpi=96
 
 ! Extra options for xft font spec - ~/.fonts.conf seems to override this
 ! :antialias=false:hintstyle=hintfull
@@ -46,10 +46,10 @@ xterm*VT100.Translations: #override \
     Ctrl Shift <Key>C:    copy-selection(CLIPBOARD) \n\
     Ctrl Shift <Key>F: exec-formatted("xdg-open '%t'", PRIMARY)
 
-!xterm*VT100.Translations: #override \
-!    Ctrl <Key> minus: smaller-vt-font() \n\
-!    Ctrl <Key> plus: larger-vt-font() \n\
-!    Ctrl <Key> 0: set-vt-font(d)
+xterm*VT100.Translations: #override \
+    Ctrl <Key> minus: smaller-vt-font() \n\
+    Ctrl <Key> plus: larger-vt-font() \n\
+    Ctrl <Key> 0: set-vt-font(d)
 
 ! URxvt
 URxvt.modifier: mod1
@@ -76,7 +76,7 @@ URxvt*shading: 25
 URxvt.font: -misc-fixed-medium-r-normal--15-140-75-75-c-90-iso8859-1
 
 ! URxvt.urgentOnBell: true
-! URxvt.urlLauncher: chrome
+URxvt.urlLauncher: firefox 
 ! URxvt.internalBorder: 3
 URxvt.depth: 24
 ! URxvt.letterSpace: -1
@@ -103,23 +103,23 @@ URxvt.keysym.C-slash:  font-size:show
 *.colorBDMode: false
 !*.colorBD: cyan
 
-!! Base16 Flat
-!#define base00 #2C3E50
-!#define base01 #34495E
-!#define base02 #7F8C8D
-!#define base03 #95A5A6
-!#define base04 #BDC3C7
-!#define base05 #e0e0e0
-!#define base06 #f5f5f5
-!#define base07 #ECF0F1
-!#define base08 #E74C3C
-!#define base09 #E67E22
-!#define base0A #F1C40F
-!#define base0B #2ECC71
-!#define base0C #1ABC9C
-!#define base0D #3498DB
-!#define base0E #9B59B6
-!#define base0F #be643c
+! Base16 Flat
+#define base00 #2C3E50
+#define base01 #34495E
+#define base02 #7F8C8D
+#define base03 #95A5A6
+#define base04 #BDC3C7
+#define base05 #e0e0e0
+#define base06 #f5f5f5
+#define base07 #ECF0F1
+#define base08 #E74C3C
+#define base09 #E67E22
+#define base0A #F1C40F
+#define base0B #2ECC71
+#define base0C #1ABC9C
+#define base0D #3498DB
+#define base0E #9B59B6
+#define base0F #be643c
 
 ! Base16 Eighties
 #define base00 #2d2d2d
@@ -139,7 +139,7 @@ URxvt.keysym.C-slash:  font-size:show
 #define base0E #cc99cc
 #define base0F #d27b53
 
-!! Base16 Atelier Dune
+! Base16 Atelier Dune
 !#define base00 #20201d
 !#define base01 #292824
 !#define base02 #6e6b5e
@@ -165,6 +165,8 @@ URxvt.keysym.C-slash:  font-size:show
 *.cursorColor2:  base05
 *.cursorUnderline: true
 *.cursorBlink: true
+*fading:       20
+*fadeColor:    base03
 
 ! Light
 !*.foreground:   base02
@@ -216,18 +218,18 @@ URxvt.keysym.C-slash:  font-size:show
 !#define S_base2         #eee8d5
 !#define S_base3         #fdf6e3
 !! Light
-!!#define S_base03        #fdf6e3
-!!#define S_base02        #eee8d5
-!!#define S_base01        #93a1a1
-!!#define S_base00        #839496
-!!#define S_base0         #657b83
-!!#define S_base1         #586e75
-!!#define S_base2         #073642
-!!#define S_base3         #002b36
+!#define S_base03        #fdf6e3
+!#define S_base02        #eee8d5
+!#define S_base01        #93a1a1
+!#define S_base00        #839496
+!#define S_base0         #657b83
+!#define S_base1         #586e75
+!#define S_base2         #073642
+!#define S_base3         #002b36
 !
 !*background:              S_base03
 !*foreground:              S_base0
-!*fading:                  40
+!*fading:                  20
 !*fadeColor:               S_base03
 !*cursorColor:             S_base1
 !*pointerColorBackground:  S_base01

@@ -24,15 +24,15 @@
     };  
   
     useDHCP = false;
-    interfaces.enp2s20f0.useDHCP = true;
+    interfaces.enp2s0f0.useDHCP = true;
     interfaces.enp5s0.useDHCP = true;
-    # interfaces.wlp4s0.useDHCP = true;
+    interfaces.wlp7s0f3u2.useDHCP = true;
 
-    nat = {
-        internalInterfaces = ["ve-+"];
+    # nat = {
+    #    internalInterfaces = ["ve-+"];
         # externalInterface = "enp0s20f0u6";
         # externalInterface = "wlp4s0";
-    };
+    # };
 
 #    Forwarding for the Ruby VM
 #      ${pkgs.vde2}/bin/vde_switch -tap tap0 -mod 660 -group kvm -daemon

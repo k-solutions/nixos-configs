@@ -31,6 +31,5 @@
   # };
   #
   # swap file
->>>>>>> 9e104770b8bc79af0c7d08d0835a1d358f5d8a0e
   # swapDevices = [{device = "/swapfile"; size = 8000;}];
 } 
