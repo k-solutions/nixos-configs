@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
-{ # Version control 
+{ # Version control
+  home.stateVersion = "21.11";	 
   home.packages = with pkgs; 
   [
       ctags
@@ -26,6 +27,8 @@
       # iana-etc
       # Activate cachix
       cachix
+      # used havy for cli commands
+      # jq	   	
       
       # dconf for gnome3 UI
       dconf
@@ -63,8 +66,15 @@
   manual.manpages.enable = false;
  
   programs = {
-    chromium.enable = true; 
-    
+    jq.enable = true;	
+    # chromium.enable = true; 
+    direnv = {
+      enable = true;
+      nix-direnv = {
+	enable = true; 	
+      };		 	
+    };
+    		 
     # dconf.enable = true; # add for gnome programs (opera, firefox etc.)
     home-manager.enable = true;
 

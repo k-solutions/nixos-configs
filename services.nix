@@ -77,8 +77,10 @@
   # Enable the X11 windowing system.
   xserver = { 
       enable = true;
-      layout = "us";
-      xkbOptions = "eurosign:e";
+      layout = "us, bg";
+      xkbVariant = "phonetic"; 	
+      xkbOptions = "grp:alts_switch";
+      # i18n.consoleUseXkbConfig = true;
       # synaptics.enable = false;
       libinput.enable = true;
   # services.xserver.vaapiDrivers = [ pkgs.vaapiIntel ];

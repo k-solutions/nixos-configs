@@ -40,9 +40,13 @@
 #    enable = true;
 # }; 
 # The NixOS release to be compatible with for stateful data such as databases.
-  system.autoUpgrade.enable = true;
-  system.autoUpgrade.channel = https://nixos.org/channels/nixos-unstable;  
-  system.stateVersion = "19.03";
+  system = { 
+	autoUpgrade = { 
+		enable = true;
+  		channel = https://nixos.org/channels/nixos-unstable; 
+	};
+  };		 
+  # system.stateVersion = "19.03";
   nix.gc = {
     automatic = true;
     dates = "weekly";
