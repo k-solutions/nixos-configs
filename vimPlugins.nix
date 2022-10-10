@@ -23,4 +23,5 @@ with pkgs.vimPlugins; [
     vim-lsp
     vim-json
     coc-nvim
+    purescript-vim	
 ]

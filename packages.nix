@@ -30,8 +30,8 @@
      # linuxPackages.tp_smapi
      # busybox
      # binutils      
-     # rxvt-unicode-with-perl-with-unicode3
-     rxvt_unicode-with-plugins
+     rxvt-unicode
+     # rxvt_unicode-with-plugins
      # X11 packages
      # chromium
      # firefoxWrapper
