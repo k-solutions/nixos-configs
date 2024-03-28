@@ -29,10 +29,13 @@
      tpacpi-bat
      # linuxPackages.tp_smapi
      # busybox
-     # binutils      
-     rxvt-unicode
+     # binutils
+     # --- Terminals ---        
+     # rxvt-unicode
      # rxvt_unicode-with-plugins
-     # X11 packages
+     st
+     alacritty
+     # --- X11 packages ----
      # chromium
      # firefoxWrapper
      # trayer
@@ -46,7 +49,7 @@
      xfontsel
      xlsfonts
      # xmodmap
-     xcompmgr  
+     # xcompmgr  
      # Backlight 
      brightnessctl
      # xorg.xbacklight  
@@ -75,7 +78,14 @@
 
   fonts = {
     fontDir.enable = true;
-    fonts = with pkgs; [
+    packages = with pkgs; [
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+      liberation_ttf
+      fira-code
+      fira-code-symbols
+      mplus-outline-fonts.githubRelease	 
       # corefonts
       dina-font
       fantasque-sans-mono

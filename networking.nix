@@ -28,6 +28,13 @@
     interfaces.enp5s0.useDHCP = true;
     interfaces.wlp7s0f3u2.useDHCP = true;
 
+    extraHosts = 
+	''
+            127.0.0.1 pab.docs
+    	    127.0.0.1 plutus.docs
+            127.0.0.1 db
+        '';
+
     # nat = {
     #    internalInterfaces = ["ve-+"];
         # externalInterface = "enp0s20f0u6";

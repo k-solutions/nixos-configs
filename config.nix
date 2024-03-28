@@ -1,14 +1,17 @@
 pkgs : {
+  permittedInsecurePackages = [
+     "openssl-1.1.1w"
+  ];
   allowUnfree = true;
   # ignoreCollisions = true;
   allowBroken = true;
   firefox.enableGoogleTalkPlugin = true;
   # firefox.enableEsteid = true;
 
-  # chromium = {
+  chromium = {
   #  enablePepperFlash = true; # Chromium's non-NSAPI alternative to Adobe Flash
-  # enablePepperPDF = true;
-  # };
+    enablePepperPDF = true;
+  };
 
   packageOverrides = pkgs : with pkgs; rec  {
     myHaskellEnv = (import ./haskell.nix pkgs).haskellEnv; 

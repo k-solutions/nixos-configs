@@ -2,7 +2,7 @@ filetype indent plugin on
 
 " Enable syntax highlighting
 syntax on
-colorscheme minimalist         " awesome colorscheme 
+colorscheme lunapeach        " awesome colorscheme 
   try
     let g:hybrid_custom_term_colors = 1
     let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
@@ -56,10 +56,81 @@ colorscheme minimalist         " awesome colorscheme
   set pastetoggle=        " Use F11 to toggle between paste and nopaste
   set confirm             " Present dialog instead of failing commands
   set mouse=a             " enable mouse
-  
+
+  # vim folding
+  set foldmethod=syntax
+  set foldnestmax=10
+  set foldlevel=2
+  set nofoldenable 
+
   " Stylish Haaskell settings
   set formatprg=stylish-haskell
   " HLint integration settings
   let g:syntastic_haskell_checkers = ['hlint']
   " Elixir mix fomrater option
   set formatprg=mix\ format\ 
+  " Enable plugins and load plugin for the detected file type.
+  filetype plugin on
+  " Enable Omnicomplete features
+  " set omnifunc=syntaxcomplete#Complete
+  
+  " Autocomplete Bash like
+  set wildmode=longest,list,full
+	set wildmenu
+	vmap <Leader>ggd <Plug>(coc-definition)
+	map <Leader>ggi <Plug>(coc-implementation)
+	map <Leader>ggt <Plug>(coc-type-definition)
+	map <Leader>gh :call CocActionAsync('doHover')<cr>
+	map <Leader>gn <Plug>(coc-diagnostic-next)
+	map <Leader>gp <Plug>(coc-diagnostic-prev)
+	map <Leader>gr <Plug>(coc-references)
+
+	map <Leader>rn <Plug>(coc-rename)
+	map <Leader>rf <Plug>(coc-refactor)
+	map <Leader>qf <Plug>(coc-fix-current)
+
+	map <Leader>al <Plug>(coc-codeaction-line)
+	map <Leader>ac <Plug>(coc-codeaction-cursor)
+	map <Leader>ao <Plug>(coc-codelens-action)
+
+	nnoremap <Leader>kd :<C-u>CocList diagnostics<Cr>
+	nnoremap <Leader>kc :<C-u>CocList commands<Cr>
+	nnoremap <Leader>ko :<C-u>CocList outline<Cr>
+	nnoremap <Leader>kr :<C-u>CocListResume<Cr>
+
+	inoremap <silent><expr> <c-space> coc#refresh()
+	inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
+
+	autocmd CursorHold * silent call CocActionAsync('highlight')
+	autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')>
+
+  nnoremap <silent> <C-]> :call CocActionAsync('jumpDefinition')
+
+  " Go TagBar config
+   let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }

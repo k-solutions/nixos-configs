@@ -21,14 +21,16 @@
       # nodejs is needed for vim language-server
       nodejs
 
-      # opera
+      # browsers 
+      #	opera
+      # chromium
       # NOTE: iana-etc is needed by nix-build for stack 
       # stack
       # iana-etc
       # Activate cachix
       cachix
       # used havy for cli commands
-      # jq	   	
+      jq	   	
       
       # dconf for gnome3 UI
       dconf
@@ -37,8 +39,10 @@
 
       # Kube infrastructure
       # minikube
-      # helm
-      # terraform
+      helm
+      terraform
+      kubectl
+      kubectx	
       # aws
   ];
 
@@ -83,6 +87,9 @@
       historyControl = ["erasedups"];
       historyIgnore = [ "ls" "cd" "exit" "nix-shell" ];
       sessionVariables = { ERL_AFLAGS = "-kernel shell_history enabled"; };
+      bashrcExtra = ''
+	  /home/me/.bash_kube	
+	'';	
     };
     
     git = {
@@ -90,8 +97,32 @@
         userName = "Hristo Kochev";
         userEmail = "h.l.kochev@gmail.com";
         aliases = { s = "status"; };
+	extraConfig = {
+	  include = {
+	    path = "~/.gitconfig.global";
+          };	
+	};	
+  
     };
 
+    neovim = {
+	enable = true;
+        vimAlias = true;
+	extraConfig = builtins.readFile (./init.vim);
+	plugins = with pkgs.vimPlugins; [
+         nvim-lspconfig
+         vim-go
+	 coc-nvim
+         # coc-deno
+#     	 nvim-tree-lua {
+#      	   aiken-lang/editor-integration-nvim 
+#,
+#           dependencies = {
+#            'neovim/nvim-lspconfig',
+#           }	           	
+#         }	  
+        ];	
+    };	
     vim = {
         enable = true;
         extraConfig = builtins.readFile (./vimrc);
@@ -117,5 +148,9 @@
       # enableIcedTea = true;
       # extraPackages = epkgs: [ ];
     }; 
+
+    chromium = {
+      enable = true;
+    };
   };
 }

@@ -12,7 +12,7 @@
   sound.extraConfig = "ALSA_CARD=HDMI";	
   # Select internationalisation properties.
   console = {
-    font = "Lat2-Terminus16";
+    font = "Lat2-Terminus13";
     keyMap = "us";
   };
 

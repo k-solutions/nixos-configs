@@ -1,22 +1,26 @@
 ! Font options - ~/.fonts.conf seems to override this
 ! Resolution for Xft in dots per inch (e.g. 96)
-Xft.dpi:       128
+Xft.dpi:       120 
 ! Type of subpixel antialiasing (none, rgb, bgr, vrgb or vbgr)
 Xft.rgba:      rgba
-Xft.antialias: 1
-Xft.hinting:   1
-Xft.autohint:  0
+Xft.antialias: true
+Xft.hinting:   true
+Xft.hintstyle: hintfull
+! Xft.autohint:  0
+
 ! What degree of hinting to use (hintnone, hintslight, hintmedium, or hintfull)
 Xft.hintstyle: hintslight
+! --- Fonts --- !
+URxvt.font:xft:DejaVuSansMono:pixelsize=14
+URxvt.boldfont:xft:Monospace-Bold:pixelsize=13
+! xterm*faceName: terminus-11
+! URxvt*font:     terminus-11
+! URxvt*boldFont: terminus-11
 
-xterm*faceName: terminus-11
-URxvt*font:     terminus-11
-URxvt*boldFont: terminus-11
-
-! #define FONTSIZE 14
-xterm*faceName: xft:PragmataPro:size=FONTSIZE:antialias=true:hinting=true:autohint=false:hintstyle=hintnone:dpi=96
-URxvt*font:     xft:PragmataPro:size=FONTSIZE:antialias=true:hinting=true:autohint=false:hintstyle=hintnone:dpi=96
-URxvt*boldFont: xft:PragmataPro:size=FONTSIZE:antialias=true:hinting=true:autohint=false:hintstyle=hintnone:dpi=96
+! #define FONTSIZE 11
+! xterm*faceName: xft:PragmataPro:size=FONTSIZE:antialias=true:hinting=true:autohint=false:hintstyle=hintnone:dpi=96
+! URxvt*font:     xft:PragmataPro:size=FONTSIZE:antialias=true:hinting=true:autohint=false:hintstyle=hintnone:dpi=96
+! URxvt*boldFont: xft:PragmataPro:size=FONTSIZE:antialias=true:hinting=true:autohint=false:hintstyle=hintnone:dpi=96
 
 ! Extra options for xft font spec - ~/.fonts.conf seems to override this
 ! :antialias=false:hintstyle=hintfull
@@ -73,7 +77,7 @@ URxvt*transparent: true
 ! URxvt*shading: 0 to 99 darkens, 101 to 200 lightens
 URxvt*shading: 25 
 
-URxvt.font: -misc-fixed-medium-r-normal--15-140-75-75-c-90-iso8859-1
+! URxvt.font: -misc-fixed-medium-r-normal--15-140-75-75-c-90-iso8859-1
 
 ! URxvt.urgentOnBell: true
 URxvt.urlLauncher: firefox 

@@ -2,6 +2,12 @@
 
 {
   # List services that you want to enable:
+  # IPFS installation
+  #  kubo = 
+  #	{ enable = true;
+  #	  autoMount = true;	 
+  #        localDiscovery = false;
+  #	};
   # services.vpnc.enable = true; 
   # Enable the OpenSSH daemon.
     openssh.enable = true;
@@ -13,7 +19,9 @@
     syslogd.enableNetworkInput = true;
     # Should be active now 
     journald.forwardToSyslog = true; 
-
+    # bluetooth  
+    # hardware.bluetooth.enable = true;
+    blueman.enable = true;
   # storage and NFS shares options
   # storage = 
   #  {
@@ -74,15 +82,51 @@
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
-  # Enable the X11 windowing system.
+  # Nginx Config
+  nginx = {
+    enable = false;
+    logError = "stderr debug";
+    # serviceConfig.ReadWritePaths = [
+    #   "/var/log/nginx"
+    # ];
+    virtualHosts = {
+    	"plutus.docs" = {
+	    root = "/var/www/plutus.docs";
+         };
+     	"pab.docs" = {
+	    root = "/var/www/pab.docs";
+         };
+   };
+  };	
+
+ # XCompomgr replacment
+ picom = {
+   enable = true;
+   activeOpacity = 1.0;
+   inactiveOpacity = 0.8;
+ #  expiremantalBackends = true;
+   vSync = true;	
+#   backend = "glx";
+#   fade = true;
+#   fadeDelta = 5;
+#   shadow = true;
+#   shadowOpacity = 0.75;		
+ };
+ 
+ # Enable the X11 windowing system.
   xserver = { 
       enable = true;
-      layout = "us, bg";
-      xkbVariant = "phonetic"; 	
-      xkbOptions = "grp:alts_switch";
+       xkb = {
+     	layout = "us, bg";
+	variant = "phonetic"; 	
+	options = "grp:alts_switch";
+      };	
       # i18n.consoleUseXkbConfig = true;
       # synaptics.enable = false;
-      libinput.enable = true;
+      libinput = { 
+	enable = true;
+ 	touchpad.disableWhileTyping = true;	
+      };	
   # services.xserver.vaapiDrivers = [ pkgs.vaapiIntel ];
   
   # Enable the KDE Desktop Environment.
@@ -90,9 +134,9 @@
   # svervices.xserver.desktopManager.kde4.enable = true;
   # desktopManager.xfce.enable = true;  
   # services.xserver.desktopManager.enlightenment.enable = true;
-# 	windowManager = {
+#      windowManager = {
 # 	     xmonad = {
-# 	 	  config = ./xmonad.hs;
+#	 	  config = ./xmonad.hs;
 # 	          enable = true;
 # 	          enableContribAndExtras = true;
 # 	          extraPackages = haskellPackages: with haskellPackages; [
@@ -102,7 +146,7 @@
 # 	            xmobar
 # 	          ];
 # 	     };
-# 	}; 
+#      }; 
       desktopManager.xterm.enable = false;
       displayManager = {
         defaultSession = "hm-xmonad";
@@ -115,11 +159,36 @@
 	];
       };
    };
+
+  # Amazon SSM 
+  amazon-ssm-agent = { 
+   enable = false; # true;
+  };	
+  # kubernetes etcd
+ # kubernetes = {
+ #   roles = [
+ #    "master"
+ #     "node"
+ #   ];
+   # apiserver.enable = true;
+   # controllerManager.enable = true;
+   # scheduler.enable = true;
+   # addonManager.enable = true;
+   # proxy.enable = true;
+   # flannel.enable = true;	
+ # }	
+  # etcd = {
+  #  enable = true;	
+  # }
   # Add Ledger udev rules
   udev.packages = with pkgs; [
   	  ledger-udev-rules	
 	];		
   # services.xserver.desktopManager.e17.enable = true;
     pcscd.enable = true; # pcsc-lite daemon  
-    dbus.packages = with pkgs; [ dconf ];
+    dbus = {
+	enable = true;
+	# socketActivated = true;	 
+	packages = with pkgs; [ dconf ];
+    };	
  }

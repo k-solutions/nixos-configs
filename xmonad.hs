@@ -25,9 +25,9 @@ import qualified Data.Map        as M
 -- Terminal
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
-myTerminal = "urxvt"
+myTerminal = "xterm"  -- "urxvt"
 
-myCodeTerminal = "xterm"    -- I do use xterm as vim viewer
+myCodeTerminal = "alacritty"    -- I do use xterm as vim viewer
 
 -- The command to lock the screen or show the screensaver.
 myScreensaver = "/usr/bin/gnome-screensaver-command --lock"
@@ -348,15 +348,15 @@ main = do
   xmproc <- spawnPipe "xrandr --output eDP --auto --output HDMI-A-0 --auto --right-of eDP"  
   xmproc <- spawnPipe "~/.fehbg &"
   xmproc <- spawnPipe "xmobar /home/nixos-configs/xmobar.hs"
-  xmonad $ defaults {
-      logHook = dynamicLogWithPP $ xmobarPP {
+  xmonad $ defaults 
+      {	 logHook = dynamicLogWithPP $ xmobarPP {
             ppOutput = hPutStrLn xmproc
           , ppTitle = xmobarColor xmobarTitleColor "" . shorten 100
           , ppCurrent = xmobarColor xmobarCurrentWorkspaceColor ""
           , ppSep = "   "
       }
       , manageHook = manageDocks <+> myManageHook
-      , startupHook = setWMName "LG3D"
+      , startupHook = setWMName "ThinkVision"
   }
 
 ------------------------------------------------------------------------
@@ -367,7 +367,7 @@ main = do
 --
 -- No need to modify this.
 --
-defaults = defaultConfig {
+defaults = def {
     -- simple stuff
     terminal           = myTerminal,
     focusFollowsMouse  = myFocusFollowsMouse,
