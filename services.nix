@@ -15,8 +15,8 @@
   #  udisk2.enable = true; 
     devmon.enable = true; # automounitng of external devices		
   # syslog-ng
-    syslog-ng.enable = true;
-    syslogd.enableNetworkInput = true;
+  #  syslog-ng.enable = true;
+  #  syslogd.enableNetworkInput = true;
     # Should be active now 
     journald.forwardToSyslog = true; 
     # bluetooth  
@@ -112,8 +112,14 @@
 #   shadow = true;
 #   shadowOpacity = 0.75;		
  };
- 
+ # Libinput new configuration
+ libinput = { 
+	enable = true;
+ 	touchpad.disableWhileTyping = true;	
+ };	
+
  # Enable the X11 windowing system.
+ # displayManager.defaultSession = "nm-xmonad"; 
   xserver = { 
       enable = true;
        xkb = {
@@ -123,10 +129,10 @@
       };	
       # i18n.consoleUseXkbConfig = true;
       # synaptics.enable = false;
-      libinput = { 
-	enable = true;
- 	touchpad.disableWhileTyping = true;	
-      };	
+#      libinput = { 
+#	enable = true;
+# 	touchpad.disableWhileTyping = true;	
+#      };	
   # services.xserver.vaapiDrivers = [ pkgs.vaapiIntel ];
   
   # Enable the KDE Desktop Environment.
@@ -149,7 +155,7 @@
 #      }; 
       desktopManager.xterm.enable = false;
       displayManager = {
-        defaultSession = "hm-xmonad";
+        # defaultSession = "hm-xmonad";
 	session = [
 	  {
  	    manage = "desktop";

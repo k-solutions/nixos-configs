@@ -7,11 +7,11 @@ vim_configurable.customize {
  
       " Enable syntax highlighting
       syntax on
-      " colorscheme badwolf         " awesome colorscheme 
+      " colorscheme lunapeach         " awesome colorscheme 
         try
           let g:hybrid_custom_term_colors = 1
           let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
-          colorscheme  srcery  
+          colorscheme  lunapeach 
           let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
           let $NVIM_TUI_ENABLE_TRUE_COLOR=1 
         catch

@@ -35,6 +35,8 @@ with pkgs.vimPlugins; [
     # Haskell
     vim-hoogle
     haskell-vim
+    # OCaml
+    vim-ocaml	 
     # TreeSitter settings
     nvim-treesitter-parsers.haskell
     nvim-treesitter-parsers.ruby

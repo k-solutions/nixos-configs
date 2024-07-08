@@ -48,7 +48,7 @@ pkgs:
 
                    # tools
                    hasktags
-                   stack
+                   stack	
                  ]);
                  
 }

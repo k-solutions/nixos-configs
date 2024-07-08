@@ -15,7 +15,7 @@
       # vlc
       pavucontrol 
       # unrar
-      unzip
+      # unzip
       htop
 
       # nodejs is needed for vim language-server
@@ -34,16 +34,23 @@
       
       # dconf for gnome3 UI
       dconf
-
+      # Devenv.sh
+      devenv	 
       # docker-compose
 
       # Kube infrastructure
       # minikube
-      helm
+      # kubernetes-helm
+      (wrapHelm kubernetes-helm { plugins = [
+	  kubernetes-helmPlugins.helm-s3
+	  kubernetes-helmPlugins.helm-git
+
+	]; })
       terraform
       kubectl
-      kubectx	
-      # aws
+      kubectx
+      kops	
+      # awscli2
   ];
 
   # Raw configs
@@ -107,21 +114,23 @@
 
     neovim = {
 	enable = true;
-        vimAlias = true;
+#         vimAlias = true;
 	extraConfig = builtins.readFile (./init.vim);
-	plugins = with pkgs.vimPlugins; [
-         nvim-lspconfig
-         vim-go
-	 coc-nvim
-         # coc-deno
-#     	 nvim-tree-lua {
-#      	   aiken-lang/editor-integration-nvim 
-#,
-#           dependencies = {
-#            'neovim/nvim-lspconfig',
-#           }	           	
-#         }	  
-        ];	
+	plugins = import (./vimPlugins.nix) {inherit pkgs;};
+
+#	plugins = with pkgs.vimPlugins; [
+#         nvim-lspconfig
+#         vim-go
+#	 coc-nvim
+#         # coc-deno
+##     	 nvim-tree-lua {
+##      	   aiken-lang/editor-integration-nvim 
+##,
+##           dependencies = {
+##            'neovim/nvim-lspconfig',
+##           }	           	
+##         }	  
+#        ];	
     };	
     vim = {
         enable = true;

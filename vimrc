@@ -106,6 +106,11 @@ colorscheme lunapeach        " awesome colorscheme
 
   nnoremap <silent> <C-]> :call CocActionAsync('jumpDefinition')
 
+  " Ocaml highlights
+   let g:ocaml_highlight_operators = 1
+   let g:ocaml_compiler_compact_messages = 0 
+
+
   " Go TagBar config
    let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
