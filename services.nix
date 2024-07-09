@@ -105,7 +105,7 @@
    activeOpacity = 1.0;
    inactiveOpacity = 0.8;
  #  expiremantalBackends = true;
-   vSync = true;	
+#   vSync = true;	
 #   backend = "glx";
 #   fade = true;
 #   fadeDelta = 5;

@@ -9,11 +9,11 @@
       ./hardware-configuration.nix
       ./packages.nix                                # set of packages to be install on systtem env
       ./locals.nix                                  # disks and locals settings 
-      # <home-manager/nixos>  
+      <home-manager/nixos>  
       # Define a user account. Don't forget to set a password with ‘passwd’.
       ./users.nix 
-      # ./cachix.nix	
-      # ./yubikey.nix   # Yubikey and Smart Card configurations			 
+      ./cachix.nix	
+      ./yubikey.nix   # Yubikey and Smart Card configurations			 
     ];
 
   environment.variables.EDITOR = "vim";
