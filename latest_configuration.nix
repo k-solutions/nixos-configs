@@ -47,7 +47,7 @@
 	
 	# Virtualisation
 	######################  
-	virtualisation.docker.enable = true;
+	# virtualisation.docker.enable = true;
 	# NOTE: was needed for ruby VM 
 	# virtualisation.libvirtd.enable = true;
 	# virtualisation.libvirtd.enableKVM = true;

@@ -15,6 +15,8 @@
      curl
      git
      openssh
+     openconnect	
+     devenv	
      # vpnc 
      # NOTE: not needed currently
      vim

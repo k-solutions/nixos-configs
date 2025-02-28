@@ -86,10 +86,15 @@
   nginx = {
     enable = false;
     logError = "stderr debug";
-    # serviceConfig.ReadWritePaths = [
-    #   "/var/log/nginx"
-    # ];
+#    serviceConfig.ReadWritePaths = [
+#       "/var/log/nginx"
+#    ];
+    user = "me";
+    group = "nginx";
     virtualHosts = {
+        "k-solutions" = {
+          root = "/var/www/fables-master";		
+	};
     	"plutus.docs" = {
 	    root = "/var/www/plutus.docs";
          };
@@ -104,13 +109,6 @@
    enable = true;
    activeOpacity = 1.0;
    inactiveOpacity = 0.8;
- #  expiremantalBackends = true;
-#   vSync = true;	
-#   backend = "glx";
-#   fade = true;
-#   fadeDelta = 5;
-#   shadow = true;
-#   shadowOpacity = 0.75;		
  };
  # Libinput new configuration
  libinput = { 
@@ -192,8 +190,11 @@
 	];		
   # services.xserver.desktopManager.e17.enable = true;
     pcscd.enable = true; # pcsc-lite daemon  
+    # DBus and Upower
+    upower.enable = true;
     dbus = {
 	enable = true;
+	implementation = "broker";
 	# socketActivated = true;	 
 	packages = with pkgs; [ dconf ];
     };	

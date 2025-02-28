@@ -35,8 +35,13 @@
       dconf
       # Devenv.sh
       devenv	 
-      # docker-compose
-
+      # Nix LSP
+      nixd
+      # Google SDK 
+      google-cloud-sdk		 		
+      # Podman tools
+      podman-compose 
+      docker-compose	
       # Kube infrastructure
       # minikube
       # kubernetes-helm
@@ -45,10 +50,11 @@
 	  kubernetes-helmPlugins.helm-git
 
 	]; })
-      terraform
-      kubectl
-      kubectx
-      kops
+      # terraform
+      # kubectl
+      # kubectx
+      # kops
+      # krew   # plugin manager for kubectl	
       awscli2		
 #      (awscli2.override {
 #        overrideAttrs = overrideAttrs (old: {
@@ -170,6 +176,7 @@
   # Browsers and Extensions
     firefox = {
       enable = true;
+      package = pkgs.firefox-beta-bin;
       # enableIcedTea = true;
       # extraPackages = epkgs: [ ];
     }; 

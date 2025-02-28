@@ -21,8 +21,9 @@ with pkgs.vimPlugins; [
     # vim-hdevtools
     vim-stylishask
     vim-elixir
+    vim-plug
     vim-lsp
-    # vimm-lsp-settings
+    vim-lsp-settings
     vim-json
     vim-go
     vim-ruby 
@@ -44,7 +45,9 @@ with pkgs.vimPlugins; [
     # Airline
     airline
     vim-airline
-    vim-helm 
+    vim-helm
+    # slim ruby templates 
+    # vim-slim  
     ale
     tagbar 
     # (fromGitHub "HEAD" "rust-lang/rust.vim") 	

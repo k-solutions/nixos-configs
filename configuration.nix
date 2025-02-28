@@ -17,6 +17,11 @@
     ];
 
   environment.variables.EDITOR = "vim";
+  # temporay allow insecure openssh packages
+
+  permittedInsecurePackages = [
+    "openssl-1.1.1w"
+  ];	
   # boot opions from nixos-source
   boot = import ./boot.nix {inherit config pkgs;}; 
   # List services that you want to enable:
@@ -63,7 +68,20 @@
 	
 	# Virtualisation
 	######################  
-	virtualisation.docker.enable = true;
+	virtualisation = { 
+	  podman = { 
+		enable = true;
+          	dockerComapt = true;
+                defaultNetwork.settings.dns_enabled = true;
+                acltype = posixacl; 
+          };
+	  docker = { 
+	    enable = false;
+            storageDriver = "zfs";
+            enableOnBoot = false;
+	    data-root ="/docker";	 
+          };
+        };
 	# NOTE: was needed for ruby VM 
 	# virtualisation.libvirtd.enable = true;
 	# virtualisation.libvirtd.enableKVM = true;

@@ -2,6 +2,10 @@
 
 {
  users.users = {
+   nginx = {
+	extraGroups = [ "users" ];
+        isNormalUser = true;
+   };
    me = {
      isNormalUser = true;
      uid = 1000;
@@ -12,6 +16,7 @@
 	"video"
 	"audio"
 	"docker"
+        "nginx"
      ];
    };
  };

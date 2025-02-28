@@ -5,7 +5,12 @@
     hostName = "thinkpadT14";     # Define your hostname.
     # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
     # nameservers = ["8.8.8.8"  "8.8.4.4"];
-    networkmanager.enable = true;
+    networkmanager = { 
+	enable = true;
+        plugins = with pkgs; [
+           networkmanager-openconnect
+        ];
+    };
     firewall = {
        enable = false;  
 #      allowPing = true;
@@ -33,6 +38,7 @@
             127.0.0.1 pab.docs
     	    127.0.0.1 plutus.docs
             127.0.0.1 db
+            127.0.0.1 k-solutions
         '';
 
     # nat = {
