@@ -28,6 +28,9 @@ with pkgs.vimPlugins; [
     vim-go
     vim-ruby 
     coc-nvim
+    ai-vim
+    # coc-ai	
+    # vimplugin-ai	
     # Rust
     rust-vim
     coc-rust-analyzer

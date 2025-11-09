@@ -32,7 +32,7 @@
      # linuxPackages.tp_smapi
      # busybox
      # binutils
-     # --- Terminals ---        
+     # --- Terminals ---
      # rxvt-unicode
      # rxvt_unicode-with-plugins
      st
@@ -46,7 +46,6 @@
      # xscreensaver
      xclip
      #xchat
-
      # Font junk
      xfontsel
      xlsfonts
@@ -64,15 +63,10 @@
      haskellPackages.xmonad-contrib
      haskellPackages.xmonad-extras
      haskellPackages.yeganesh
-     # additinal fonts 
-     # ubuntu-font-family
-     # vista-fonts
-
      # Tools && Utils
      # htop
      # universal-ctags
      # feh
-
      # Browsers and UI tools
      # firefox 
      # gnome3.dconf 
@@ -82,8 +76,8 @@
     fontDir.enable = true;
     packages = with pkgs; [
       noto-fonts
-      noto-fonts-cjk
-      noto-fonts-emoji
+      noto-fonts-cjk-sans
+      noto-fonts-color-emoji
       liberation_ttf
       fira-code
       fira-code-symbols
@@ -95,7 +89,7 @@
       inconsolata
       proggyfonts
       #source-code-pro
-      ubuntu_font_family
+      ubuntu-classic 
       #ipafont
       kochi-substitute
     ];

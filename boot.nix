@@ -28,7 +28,8 @@
 	"amdgpu.gpu_recovery=1"
 	"amdgpu.audio=0"
         "amdgpu.runpm=0"
-        "iommu=soft:w"
+	"amgpu.dcdebugmask=0x210"
+        "iommu=soft"
       ];
     initrd.availableKernelModules = [ "nvme" "ehci_pci" "xhci_pci" "usb_storage" "sd_mod" "thinkpad_acpi" "rtsx_pci_sdmmc"];
     initrd.kernelModules = [ "acpi_call" "thinkpad-acpi" ]; 

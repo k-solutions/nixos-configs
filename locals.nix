@@ -2,17 +2,17 @@
 
 {
   powerManagement.enable = true;
-
+  # services.pulseaudio.enable = ; 
   hardware = {   
-    pulseaudio.enable = true;
+    # pulseaudio.enable = false;
     # brightnessctl.enable = true;
     cpu.intel.updateMicrocode = true;
   };
   # ALSA Sound extra configuration
-  sound.extraConfig = "ALSA_CARD=HDMI";	
+  # sound.extraConfig = "ALSA_CARD=HDMI";	
   # Select internationalisation properties.
   console = {
-    font = "Lat2-Terminus13";
+  #    font = "Lat2-Terminus13";
     keyMap = "us";
   };
 

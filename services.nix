@@ -1,4 +1,4 @@
-{config, pkgs, ...}:
+{config, pkgs, lib, ...}:
 
 {
   # List services that you want to enable:
@@ -10,6 +10,7 @@
   #	};
   # services.vpnc.enable = true; 
   # Enable the OpenSSH daemon.
+  #  pulseaudio.enable = lib.mkForce false;
     openssh.enable = true;
     sshd.enable = true;	
   #  udisk2.enable = true; 
@@ -75,8 +76,8 @@
 	       	TPACPI_ENABLE = 1;
 	       	TPSMAPI_ENABLE = 0;
 	       	# Battery charge treshold
-		START_CHARGE_THRESH_BAT0 = 83; 
-	       	STOP_CHARGE_THRESH_BAT0  =85;
+		START_CHARGE_THRESH_BAT0 = 93; 
+	       	STOP_CHARGE_THRESH_BAT0  = 95;
       	};
   };      
   # Enable CUPS to print documents.
@@ -122,7 +123,7 @@
       enable = true;
        xkb = {
      	layout = "us, bg";
-	variant = "phonetic"; 	
+#	variant = "phonetic"; 	
 	options = "grp:alts_switch";
       };	
       # i18n.consoleUseXkbConfig = true;
@@ -197,5 +198,15 @@
 	implementation = "broker";
 	# socketActivated = true;	 
 	packages = with pkgs; [ dconf ];
-    };	
+    };
+    # Add ollama
+    ollama = {
+    	enable = false;
+	acceleration = "rocm";
+	loadModels = [ 
+	  "llama3.3:3b"
+	  "gemma3:4b"	 
+	  "deepseek-r1:1.5b" 
+	];
+    };			
  }
